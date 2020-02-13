@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{1FE98A7A-4AFC-4978-A0F7-B9939C56B850}|Default">
+  <MonoDevelop.Ide.ItemProperties.CLI__Test PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CLI_Test/EmptyClass.cs">
+    <Files>
+      <File FileName="CLI_Test/Program.cs" Line="87" Column="35" />
+      <File FileName="CLI_Test/EmptyClass.cs" Line="9" Column="7" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CLI_Test" expanded="True">
+            <Node name="CLI_Test" expanded="True">
+              <Node name="EmptyClass.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
