@@ -24,6 +24,7 @@ namespace CLI_Test
         }
 
     }
+    //num1
     [Command(Description = "Command to uppercase string", Name = "uppercase")]
     class UpperCase
     {
@@ -54,19 +55,18 @@ namespace CLI_Test
             Console.WriteLine(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower()));
         }
     }
+    //num2
     [Command(Description = "Command to add number", Name = "add")]
     class Add
     {
         [Argument(0)]
-        public string num { get; set; }
+        public int [] num { get; set; }
         public void OnExecute(CommandLineApplication app)
         {
             long sum = 0;
-            String[] Num = num.Split('_');
-            for (int i = 0; i < Num.Length; i++)
+            for (int i = 0; i < num.Length; i++)
             {
-                int number = Convert.ToInt32(Num[i]);
-                sum += number;
+                sum += num[i];
             }
             Console.WriteLine(sum);
 
@@ -76,33 +76,29 @@ namespace CLI_Test
     class Substract
     {
         [Argument(0)]
-        public string num { get; set; }
+        public int [] num { get; set; }
         public void OnExecute(CommandLineApplication app)
         {
-            String[] Num = num.Split('_');
-            long sum = Convert.ToInt32(Num[0]);
-            for (int i = 0; i < Num.Length; i++)
+            long sum = num[0];
+            for (int i = 1; i < num.Length; i++)
             {
-                int number = Convert.ToInt32(Num[i]);
-                sum -= number;
+                sum -= num[i];
             }
             Console.WriteLine(sum);
-
         }
     }
     [Command(Description = "Command to multiply number", Name = "multiply")]
     class Multiply
     {
         [Argument(0)]
-        public string num { get; set; }
+        public int [] num { get; set; }
         public void OnExecute(CommandLineApplication app)
         {
-            String[] Num = num.Split('_');
-            double sum = Convert.ToDouble(Num[0]);
-            for (int i = 0; i < Num.Length; i++)
+
+            double sum = num[0];
+            for (int i = 1; i < num.Length; i++)
             {
-                double number = Convert.ToDouble(Num[i]);
-                sum *= number;
+                sum *= num[i];
             }
             Console.WriteLine(sum);
 
@@ -112,21 +108,18 @@ namespace CLI_Test
     class Divide
     {
         [Argument(0)]
-        public string num { get; set; }
+        public int [] num { get; set; }
         public void OnExecute(CommandLineApplication app)
         {
-
-            String[] Num = num.Split('_');
-            double sum = Convert.ToDouble(Num[0]);
-            for (int i = 0; i < Num.Length; i++)
+            double sum = num[0];
+            for (int i = 1; i < num.Length; i++)
             {
-                double number = Convert.ToDouble(Num[i]);
-                sum /= number;
+                sum /= num[i];
             }
             Console.WriteLine(sum);
-
         }
     }
+    //num3
     [Command(Description = "Command to check if string is palindrome", Name = "palindrome")]
     class Palindrome
     {
@@ -134,17 +127,17 @@ namespace CLI_Test
         public string text { get; set; }
         public void OnExecute(CommandLineApplication app)
         {
-
+            Console.WriteLine($"String: \"{text}\" ");
             string Text = (Regex.Replace(text, @"[a-zA-Z]+", "")).ToLower();
             char[] ch = Text.ToCharArray();
             Array.Reverse(ch);
             string TextRev = new string(ch);
-
             bool check = Text.Equals(TextRev, StringComparison.OrdinalIgnoreCase);
-            Console.WriteLine(check);
+            Console.WriteLine($"is palindrome? {check}");
 
         }
     }
+    //num4
     [Command(Description = "Command to obfuscate string", Name = "obfuscate")]
     class Obfuscator
     {
@@ -163,6 +156,26 @@ namespace CLI_Test
 
         }
     }
+    //num5
+    [Command(Description = "Command to obfuscate string", Name = "obfuscate")]
+    class Obfuscator
+    {
+        [Argument(0)]
+        public string text { get; set; }
+        public void OnExecute(CommandLineApplication app)
+        {
+
+            char[] Text = text.ToCharArray();
+            List<string> Obfused = new List<string>();
+            for (int i = 0; i < Text.Length; i++)
+            {
+                Obfused.Add($"&#{Convert.ToString(Convert.ToInt32(Text[i]))}");
+            }
+            Console.WriteLine(String.Join(";", Obfused));
+
+        }
+    }
+    //num10
     [Command(Description = "Command to infinitely add numbers", Name = "sum")]
     class Sum
     {
@@ -185,8 +198,8 @@ namespace CLI_Test
                 }
             }
             Console.WriteLine(sum);
-            //string hostname = Dns.GetHostName();
-            //string host = Dns.GetHostByName(hostname).AddressList[0].ToString();
+
+            
         }
     }
 }
